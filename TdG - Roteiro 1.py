@@ -5,7 +5,6 @@ while True:
     vertices = input('Informe todos os vertices do Grafo separados por virgula e espaços e não podem conter esses caracteres : "-", "(" e ")". \nEX: J, B, C \n')
     vertices = vertices.replace(" " , "")
     N = vertices.split(',')
-    print(N)
 
     if "-" in vertices or "(" in vertices or ")" in vertices:
         print('Você utilizou caracteres proibidos\nTente Novamente\n')
@@ -26,13 +25,10 @@ while True:
 
 dicionario = {}
 
-
-
 for x in A:
     g = x.split('(')
     dicionario[g[0]] = g[1][0:-1]
 
-print(dicionario)
 
 grafo = Grafo(N,dicionario)
 
@@ -40,17 +36,15 @@ print("\n")
 
 adj = grafo.vet_adj()
 
-print(adj)
+print("Os vertices adjacentes são:", adj)
 
-print(grafo.grau_vet("c"))
+print("O grau do vertice c é:", grafo.grau_vet("c"))
 
-print(grafo.arestas_vet("c"))
+print("As arestas do vertice c é:", grafo.arestas_vet("c"))
 
-print(grafo.graf_complete())
+print("Este grafo é completo:", grafo.graf_complete())
 
-print('asdasda\n\n\n\n')
-
-print(grafo.conexo())
+print("Este grafo é conexo é:", grafo.conexo())
 
 
 '''

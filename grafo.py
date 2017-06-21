@@ -200,7 +200,7 @@ class Grafo:
         return True
 
     def conexo(self, i = 0):
-        if i <= (len(self.Matriz) - 1):
+        if i <= (len(self.Matriz) - 2):
             if 1 not in self.Matriz[i]:
                 coluna = self.coluna()
                 if coluna == True:
