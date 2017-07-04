@@ -1,3 +1,4 @@
+import copy
 class VerticeInvalidoException(Exception):
     pass
 
@@ -21,10 +22,7 @@ class Grafo:
         for i in range(len(N)):
             linha = []
             for j in range(len(N)):
-                if i > j:
-                    linha.append("-")
-                else:
-                    linha.append(0)
+                linha.append(0)
             self.Matriz.append(linha)
 
         for v in N:
@@ -232,6 +230,17 @@ class Grafo:
                 return True
             else:
                 return False
+
+    def warshall(self):
+        n = len(self.Matriz)
+        war_matriz = copy.deepcopy(self.Matriz)
+
+        for i in range(n):
+            for j in range(n):
+                if war_matriz[j][i] > 0:
+                    war_matriz[j][i] = 1
+                    for k in range(n):
+                        war_matriz[j][k] = max(war_matriz[j][k], war_matriz[i][k])
 
     def __str__(self):
         '''

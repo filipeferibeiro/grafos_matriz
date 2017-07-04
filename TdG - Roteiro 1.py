@@ -46,6 +46,7 @@ print("Este grafo é completo:", grafo.graf_complete())
 
 print("Este grafo é conexo é:", grafo.conexo())
 
+grafo.warshall()
 
 '''
 a, b, c
