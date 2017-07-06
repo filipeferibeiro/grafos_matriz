@@ -46,9 +46,14 @@ print("Este grafo é completo:", grafo.graf_complete())
 
 print("Este grafo é conexo é:", grafo.conexo())
 
-grafo.warshall()
+print("Warshall: ",grafo.warshall())
+
+print("euler: ", grafo.euleriano(1,3,2), "\n", grafo.road )
 
 '''
 a, b, c
 a1(a-b), a2(b-c), a3(c-a)
+
+a, b, c, d, e, f, j
+as(a-b), agx(a-j), asdf(b-c), gc(b-d), tfg(c-d), poiuytr(d-e), gyu(e-f), rdg(e-j), gtgt(f-b), ftrgn(f-c)
 '''

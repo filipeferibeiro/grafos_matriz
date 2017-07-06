@@ -19,6 +19,7 @@ class Grafo:
         '''
         self.N = N
         self.Matriz = []
+        self.road = []
         for i in range(len(N)):
             linha = []
             for j in range(len(N)):
@@ -241,6 +242,33 @@ class Grafo:
                     war_matriz[j][i] = 1
                     for k in range(n):
                         war_matriz[j][k] = max(war_matriz[j][k], war_matriz[i][k])
+        return war_matriz
+
+    def euleriano(self, passe = 0, i = 0, j = 0):
+        warsh = self.warshall()
+
+        if i == 0 and j == 0 and passe == 0:
+            for i in range(len(self.Matriz)):
+                for j in range(len(self.Matriz[i])):
+                    if self.Matriz[i][j] == 0 and warsh[i][j] == 1:
+                        warsh = 0
+                        break
+                if warsh == 0:
+                    passe = 1
+                    break
+        if passe == 1:
+            if self.Matriz[i][j] == 1:
+                self.road.append(j)
+                return True
+            else:
+                for k in range(len(self.Matriz[i])):
+                    if self.Matriz[i][k] == 1:
+                        self.road.append(k)
+                        verif = self.euleriano(1, k, j)
+                        if verif == True:
+                            return True
+
+
 
     def __str__(self):
         '''
