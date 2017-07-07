@@ -245,9 +245,8 @@ class Grafo:
         return war_matriz
 
     def euleriano(self, passe = 0, i = 0, j = 0):
-        warsh = self.warshall()
-
         if i == 0 and j == 0 and passe == 0:
+            warsh = self.warshall()
             for i in range(len(self.Matriz)):
                 for j in range(len(self.Matriz[i])):
                     if self.Matriz[i][j] == 0 and warsh[i][j] == 1:
@@ -257,12 +256,12 @@ class Grafo:
                     passe = 1
                     break
         if passe == 1:
-            if self.Matriz[i][j] == 1:
+            if self.Matriz[i][j] >= 1:
                 self.road.append(j)
                 return True
             else:
                 for k in range(len(self.Matriz[i])):
-                    if self.Matriz[i][k] == 1:
+                    if self.Matriz[i][k] >= 1:
                         self.road.append(k)
                         verif = self.euleriano(1, k, j)
                         if verif == True:

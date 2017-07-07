@@ -44,11 +44,20 @@ print("As arestas do vertice c é:", grafo.arestas_vet("c"))
 
 print("Este grafo é completo:", grafo.graf_complete())
 
-print("Este grafo é conexo é:", grafo.conexo())
+# print("Este grafo é conexo é:", grafo.conexo())
 
 print("Warshall: ",grafo.warshall())
 
-print("euler: ", grafo.euleriano(1,3,2), "\n", grafo.road )
+print("euler: ", grafo.euleriano() )
+
+confirm = 0
+for i in range(len(grafo.road)):
+    if confirm == 0:
+        print("[", grafo.N[grafo.road[-1]], end = "")
+        confirm = 1
+    print(" -", grafo.N[grafo.road[i]], end = "")
+    if i == (len(grafo.road) - 1):
+        print(" ]")
 
 '''
 a, b, c
