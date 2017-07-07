@@ -44,7 +44,7 @@ print("As arestas do vertice c é:", grafo.arestas_vet("c"))
 
 print("Este grafo é completo:", grafo.graf_complete())
 
-# print("Este grafo é conexo é:", grafo.conexo())
+print("Este grafo é conexo é:", grafo.conexo())
 
 print("Warshall: ",grafo.warshall())
 
